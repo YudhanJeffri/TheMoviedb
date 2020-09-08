@@ -3,7 +3,7 @@ package com.cobacobaaja.themoviedb.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Results(
+class Results(
     var id: Int? = null,
     var overview: String? = null,
     @SerializedName("poster_path")

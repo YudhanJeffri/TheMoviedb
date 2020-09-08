@@ -26,17 +26,17 @@ class MovieViewModel : ViewModel() {
                     val responseObject = JSONObject(result)
                     val list = responseObject.getJSONArray("results")
                     for (i in 0 until list.length()) {
-                        val weather = list.getJSONObject(i)
-                        val weatherItems = Results()
-                        weatherItems.id = weather.getInt("id")
-                        weatherItems.overview = weather.getString("overview")
-                        weatherItems.posterPath = weather.getString("poster_path")
-                        weatherItems.title = weather.getString("title")
-                        weatherItems.release_date = weather.getString("release_date")
-                        weatherItems.popularity = weather.getString("popularity")
-                        weatherItems.vote_average = weather.getString("vote_average")
-                        weatherItems.vote_count = weather.getString("vote_count")
-                        listItems.add(weatherItems)
+                        val items = list.getJSONObject(i)
+                        val movieItems = Results()
+                        movieItems.id = items.getInt("id")
+                        movieItems.overview = items.getString("overview")
+                        movieItems.posterPath = items.getString("poster_path")
+                        movieItems.title = items.getString("title")
+                        movieItems.release_date = items.getString("release_date")
+                        movieItems.popularity = items.getString("popularity")
+                        movieItems.vote_average = items.getString("vote_average")
+                        movieItems.vote_count = items.getString("vote_count")
+                        listItems.add(movieItems)
                     }
                     listMovie.postValue(listItems)
                 } catch (e: Exception) {
@@ -48,6 +48,7 @@ class MovieViewModel : ViewModel() {
             }
         })
     }
+
     internal fun getMovie(): LiveData<ArrayList<Results>> {
         return listMovie
     }

@@ -13,7 +13,7 @@ import com.cobacobaaja.themoviedb.data.Constant.ImgUrl
 import com.cobacobaaja.themoviedb.model.Results
 import kotlinx.android.synthetic.main.movietv_items.view.*
 
-class MovieAdapter: RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class MovieAdapter(private val list: ArrayList<Results>): RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
     private val mData = ArrayList<Results>()
 
     fun setData(items: ArrayList<Results>){
