@@ -2,6 +2,7 @@ package com.cobacobaaja.themoviedb.ui
 
 import android.R.attr.data
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -39,30 +40,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRv() {
-        adapter = MovieAdapter(list)
-        adapter.notifyDataSetChanged()
         rvMovie.layoutManager = LinearLayoutManager(this)
-        rvMovie.adapter = adapter
         rvMovie.setHasFixedSize(true)
     }
     // apikey = 2e5975109a9b9ccbc9739e60f6e8ed65
     fun getRetrofitAPI(){
         val service = RetrofitClient.retrofitinstance?.create(ClientService::class.java)
         val call = service?.getMovie(apiKey = "2e5975109a9b9ccbc9739e60f6e8ed65")
-        call?.enqueue(object : Callback<Results>{
-            override fun onFailure(call: Call<Results>, t: Throwable) {
+        call?.enqueue(object : Callback<MovieResponses>{
+            override fun onFailure(call: Call<MovieResponses>, t: Throwable) {
                 Toast.makeText(applicationContext, "Error reading JSON", Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(
-                call: Call<Results>, response: Response<Results>) {
+                call: Call<MovieResponses>, response: Response<MovieResponses>) {
                 val body = response?.body()
-                textmovietv.text = body?.title
-                response.body()?.let { list.addAll(listOf(it)) }
+                val resultsMovie = body?.results
+                resultsMovie?.let { list.addAll(it) }
                 val adapter = MovieAdapter(list)
                 rvMovie.adapter = adapter
-            }
-
+                }
         })
 
 

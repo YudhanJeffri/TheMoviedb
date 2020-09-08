@@ -1,6 +1,5 @@
 package com.cobacobaaja.themoviedb.api
 
-import com.cobacobaaja.themoviedb.cobacoba.Retro
 import com.cobacobaaja.themoviedb.data.Constant.BaseUrl
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
