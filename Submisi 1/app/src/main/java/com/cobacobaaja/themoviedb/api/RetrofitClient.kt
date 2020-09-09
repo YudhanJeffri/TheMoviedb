@@ -7,16 +7,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private var retrofit: Retrofit? = null
-
-    val retrofitinstance:Retrofit?
-    get() {
-        if(retrofit ==null){
-            retrofit = Retrofit.Builder()
+        fun getRetrofitInstance(): Retrofit {
+            return Retrofit.Builder()
                 .baseUrl(BaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-        }
-        return retrofit
     }
 }
