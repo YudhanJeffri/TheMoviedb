@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.cobacobaaja.themoviedb.R
 import com.cobacobaaja.themoviedb.data.Constant.ImgUrl
+import com.cobacobaaja.themoviedb.model.MovieResponses
 import com.cobacobaaja.themoviedb.model.Results
 import kotlinx.android.synthetic.main.movietv_items.view.*
 
