@@ -18,4 +18,8 @@ interface ClientService {
         @Query("query") movies: String,
         @Query("api_key") apiKey: String
     ): Call<MovieResponses>
+
+    @GET("movie/now_playing")
+    fun getPlayingMovie(@Query("api_key") apiKey: String
+    ): Call<MovieResponses>
 }
