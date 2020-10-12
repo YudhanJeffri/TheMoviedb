@@ -10,18 +10,16 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/ic_menu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:text="Movies"
+                android:text="The Moviedb"
                 android:layout_marginEnd="24dp"/>
         </androidx.appcompat.widget.Toolbar>
     <LinearLayout

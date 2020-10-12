@@ -13,8 +13,19 @@ interface ClientService {
         @Query("api_key") apiKey: String
     ): Call<MovieResponses>
 
+    @GET("discover/tv")
+    fun getTv(
+        @Query("api_key") apiKey: String
+    ): Call<MovieResponses>
+
     @GET("search/movie")
     fun getSearchMovie(
+        @Query("query") movies: String,
+        @Query("api_key") apiKey: String
+    ): Call<MovieResponses>
+
+    @GET("search/tv")
+    fun getSearchTv(
         @Query("query") movies: String,
         @Query("api_key") apiKey: String
     ): Call<MovieResponses>

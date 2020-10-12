@@ -27,7 +27,7 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
         fun bind(item : Results){
             with(itemView) {
                 textmovietv.text = item.title
-                Glide.with(itemView.getContext())
+                Glide.with(itemView.context)
                     .load(ImgUrl+item.posterPath)
                     .apply(RequestOptions().override(500, 500))
                     .into(imageView)

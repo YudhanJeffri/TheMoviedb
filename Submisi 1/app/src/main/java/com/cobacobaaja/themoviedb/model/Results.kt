@@ -12,5 +12,7 @@ data class Results(
     var release_date: String? = null,
     var popularity: String? = null,
     var vote_count: String? = null,
-    var vote_average: String? = null
+    var vote_average: String? = null,
+    @SerializedName("genre_ids")
+    var genreIds: List<Int>
 )

@@ -32,8 +32,29 @@ class MovieViewModel : ViewModel() {
         })
     }
 
-    fun setSearchMovie(movies : String) {
+    fun getMovies() {
         if (listWeathers.value == null) {
+            // request API
+            val retroInstance =
+                RetrofitClient.getRetrofitInstance().create(ClientService::class.java)
+            val call = retroInstance.getMovie(apiKey = api_key)
+            call.enqueue(object : Callback<MovieResponses> {
+                override fun onResponse(
+                    call: Call<MovieResponses>,
+                    response: Response<MovieResponses>
+                ) {
+                    listWeathers.postValue(response.body())
+                }
+
+                override fun onFailure(call: Call<MovieResponses>, t: Throwable) {
+                    listWeathers.postValue(null)
+                }
+            })
+        }
+    }
+
+
+    fun setSearchMovie(movies : String) {
             // request API
             val retroInstance =
                 RetrofitClient.getRetrofitInstance().create(ClientService::class.java)
@@ -51,7 +72,6 @@ class MovieViewModel : ViewModel() {
                 }
             })
         }
-    }
     fun getMovie(): MutableLiveData<MovieResponses> {
         return listWeathers
     }

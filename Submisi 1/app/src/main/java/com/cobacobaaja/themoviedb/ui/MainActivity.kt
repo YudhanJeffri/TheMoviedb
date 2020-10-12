@@ -2,6 +2,7 @@ package com.cobacobaaja.themoviedb.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.ClipDrawable.HORIZONTAL
 import android.os.Bundle
 import android.util.Log
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.elevation = 0f
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         val searchItem = menu?.findItem(R.id.search_movie)
         val search_movie = searchItem?.actionView as SearchView
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         search_movie.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 movieViewModel.setSearchMovie(query)
+
                 return true
             }
 
@@ -79,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
         return super.onCreateOptionsMenu(menu)
-    }
+    }*/
 
     @SuppressLint("WrongConstant")
     private fun initRv() {
